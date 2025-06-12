@@ -1,0 +1,117 @@
+:root{
+    /* ## Colors */
+
+/* ### Primary */
+
+--Blue-950: hsl(213, 96%, 18%);
+--Purple-600: hsl(243, 100%, 62%);
+--Blue-300: hsl(228, 100%, 84%);
+--Blue-200: hsl(206, 94%, 87%);
+--Red-500: hsl(354, 84%, 57%);
+
+/* ### Neutral */
+
+--Grey-500: hsl(231, 11%, 63%);
+--Purple-200: hsl(229, 24%, 87%);
+--Blue-100: hsl(218, 100%, 97%);
+--Blue-50: hsl(231, 100%, 99%);
+--White: hsl(0, 100%, 100%);
+
+/* ## Typography */
+
+/* ### Body Copy */
+
+--Font-size-paragraph: 16px
+
+}
+
+
+.style-if-checked{
+    background: var(--Blue-300);
+    color: var(--Blue-950);
+    border: none;
+}
+
+.back-img{
+    background-image: url(src/public/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+ width: 30%;
+
+border-radius: .6rem;
+ height: 100%;
+
+}
+
+.border-red{
+    border-color: var(--Red-500) ;
+
+}
+
+/* cards */
+/* From Uiverse.io by Yaya12085 */ 
+
+
+
+
+.radio-input:checked  {
+  border-color: var(--Purple-600);
+}
+
+
+
+
+
+
+.radio-input:focus + .radio-tile {
+  border-color: var(--Purple-600);
+  background:hsla(206, 94%, 87%, 0.332) ;
+  
+}
+
+
+
+.radio-tile {
+  
+
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--Purple-200);
+  background-color: #fff;
+
+
+  cursor: pointer;
+
+}
+
+
+
+.radio-tile:hover {
+  border-color: var(--Purple-600);
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* switch */
+
+.toggle-btn{
+    transition: background-color .1s ease, border-color .2s ease ;
+}
+.thumb{
+    transform: translateX(0);
+    transition: left .15s ease ;
+
+}
+
+.toggle-btn.toggled .thumb {
+  left: 2.25rem;
+}
+

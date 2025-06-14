@@ -49,8 +49,7 @@ border-radius: .6rem;
 
 }
 
-/* cards */
-/* From Uiverse.io by Yaya12085 */ 
+
 
 
 
@@ -69,6 +68,13 @@ border-radius: .6rem;
   background:hsla(206, 94%, 87%, 0.332) ;
   
 }
+
+#root{
+      font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 
 
@@ -100,7 +106,7 @@ border-radius: .6rem;
   white-space: nowrap;
   width: 1px;
 }
-/* switch */
+
 
 .toggle-btn{
     transition: background-color .1s ease, border-color .2s ease ;
@@ -115,3 +121,7 @@ border-radius: .6rem;
   left: 2.25rem;
 }
 
+
+
+
+ 

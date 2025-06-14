@@ -1,23 +1,12 @@
 import "./App.css";
-import { useState } from "react"
-import PresonalInfo from "./components/Personal-Info";
+// import { useState } from "react"
+// import PresonalInfo from "./components/Personal-Info";
 // import SelectPlan from "./components/Select-Plan"
-
+import AddOns from "./components/Pick-Add-Ons";
 
 function App() {
 
 
-
-  const [checks, setChecks] = useState([false, false, false, false]);
-const [selectItem, setSelectItem] = useState("your-info");
-
-const handleOption = (item: string, index: number) => {
-  const updatedChecks = checks.map((_, i) => i === index);
-  setChecks(updatedChecks);
-  setSelectItem(item.split(" ").join("-").toLowerCase());
-};
-
-    console.log(selectItem);
   
   
   return (
@@ -26,12 +15,12 @@ const handleOption = (item: string, index: number) => {
       <ul className="text-[var(--White)] flex flex-col gap-7">
         {["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"].map(
           (item, index) => (
-            <li key={index} className=" cursor-pointer flex gap-5 items-center" onClick={() => handleOption(item,index)}
+            <li key={index} className=" cursor-pointer flex gap-5 items-center" 
  >
               <span
                 
                 className={`   w-9 h-9 p-[.2rem] font-medium text-center rounded-[50%]  border-1 text-xl bab 
-                    ${checks[index] ? "style-if-checked": ""}
+                    
             
                  `}
               >
@@ -53,9 +42,9 @@ const handleOption = (item: string, index: number) => {
     </div>
 
 <div className=" w-[60%] h-full min-h-[35rem]">
- <PresonalInfo />
+ {/* <PresonalInfo /> */}
  {/* <SelectPlan/> */}
-  
+   <AddOns/>
    
 </div>
 

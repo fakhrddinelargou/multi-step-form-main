@@ -4,19 +4,21 @@ import { Link } from "react-router-dom";
 function SelectPlan() {
   const [toggled, setToggled] = useState(false);
 
-  type CardWithPlan = CardItem & {
-    plan: string;
-  };
-
+  
   const [sCard, setScard] = useState<CardWithPlan[]>([]);
-
+  
   type CardItem = {
-    image: string;
-    name: string;
-    price: number;
-    duration: string;
-    monthlyPrice: number;
-  };
+  image: string;
+  name: string;
+  price: number;
+  duration: string;
+  monthlyPrice: number;
+};
+
+type CardWithPlan = CardItem & {
+  plan: string;
+  price: number;
+};
 
   const cardData: CardItem[] = [
     {

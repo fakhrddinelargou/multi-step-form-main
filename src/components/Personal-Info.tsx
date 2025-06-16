@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { Link } from "react-router-dom";
 import {z} from "zod"
 
 
@@ -45,7 +46,9 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
 
 
   return (
-    <div className="   w-full h-full py-5 text-[1.1rem]">
+    <div className=" w-[60%] h-full min-h-[35rem]">
+ 
+    <div className="  w-[80%] h-full py-5 text-[1.1rem] flex flex-col ">
       <h1 className="text-4xl font-bold text-[var(--Blue-950)] pb-3">
         Personal info
       </h1>
@@ -53,7 +56,7 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
         Please provide your name, email address, and phone number.
       </p>
 
-      <form className=" flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+      <form className=" h-full flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <label>
           <p className=" text-[var(--Blue-950)] font-medium pb-2 flex justify-between">
             Name
@@ -108,13 +111,13 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
             } `}
             type="number"
             placeholder="e.g. +1 234 567 890"
-          />
+            />
         </label>
        
         
-      </form>
-      <div className=" h-[20%]  flex items-end justify-between ">
+      <div className=" mt-auto h-[20%]  flex items-end justify-between ">
         <span className="text-[1.1rem] text-[var(--Grey-500)]"></span>
+        <Link to={"/select-plan"}>
          <button
              disabled={isSubmitting}
              
@@ -122,7 +125,10 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
              >
             Next Step
         </button>
+               </Link>
       </div>
+      </form>
     </div>
+             </div>
   );
 }

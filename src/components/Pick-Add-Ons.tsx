@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type AddOn = {
   title: string;
@@ -49,7 +50,9 @@ export default function AddOns() {
 
   console.log(items)
   return (
-    <div className="p-6 h-full flex flex-col ">
+    <div className=" w-[60%] h-full min-h-[35rem]">
+ 
+    <div className=" w-[80%] h-full py-5 text-[1.1rem] flex flex-col ">
       <h1 className="text-4xl font-bold text-[var(--Blue-950)] pb-3">
         Pick add-ons
       </h1>
@@ -60,22 +63,22 @@ export default function AddOns() {
       <div className="flex flex-col gap-4">
         {addOns.map((addOn, index) => (
           <label
-            key={index}
-            className={`flex justify-between items-center border rounded-lg p-4 cursor-pointer transition ${
-              selected[index]
-                ? "border-blue-600 bg-blue-50"
-                : "border-gray-300"
-            }`}
-           
+          key={index}
+          className={`flex justify-between items-center border rounded-lg p-4 cursor-pointer transition ${
+            selected[index]
+            ? "border-blue-600 bg-blue-50"
+            : "border-gray-300"
+          }`}
+          
           >
             <div className="flex gap-4 items-center">
               <input
                 type="checkbox"
                 checked={selected[index]}
-                 onChange={() => toggle(addOn, index)}
+                onChange={() => toggle(addOn, index)}
                 readOnly
                 className="w-5 h-5 accent-blue-600"
-              />
+                />
               <div>
                 <h3 className="font-bold text-blue-950">{addOn.title}</h3>
                 <p className="text-sm text-gray-500">{addOn.description}</p>
@@ -87,7 +90,12 @@ export default function AddOns() {
       </div>
 
         <div className=" mt-auto h-[20%]  flex items-end justify-between ">
-        <span className="text-[1.1rem] text-[var(--Grey-500)]"></span>
+          <Link to={"/select-plan"}>
+            <button className=" text-[1.4rem] text-[var(--Grey-500)] ">
+              Back
+            </button>
+          </Link>
+        <Link to={"/finishing-up"}>
          <button
              
              
@@ -95,7 +103,10 @@ export default function AddOns() {
              >
             Next Step
         </button>
+               </Link>
+               
       </div>
     </div>
+               </div>
   );
 }

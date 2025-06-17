@@ -1,12 +1,23 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SelectPlan() {
   const [toggled, setToggled] = useState(false);
-
-  
   const [sCard, setScard] = useState<CardWithPlan[]>([]);
   
+const navigate = useNavigate()
+
+
+const handleNext = ()=>{
+
+  if(sCard.length === 0){
+console.log("error");
+
+  }else{
+    navigate("/add-ons")
+  }
+
+}
   type CardItem = {
   image: string;
   name: string;
@@ -118,15 +129,16 @@ type CardWithPlan = CardItem & {
         </div>
         <div className="   mt-auto  h-[20%]  flex items-end justify-between ">
           <Link to={"/Personal-Info"}>
-            <button className=" text-[1.4rem] text-[var(--Grey-500)] ">
+            <button   className=" text-[1.4rem] text-[var(--Grey-500)] ">
               Back
+              
             </button>
           </Link>
-          <Link to={"/add-ons"}>
-            <button className="  cursor-pointer bg-[var(--Blue-950)] transition duration-200 hover:bg-[var(--Purple-600)] py-3 px-8 text-[1.1rem] text-[var(--White)] rounded-[.3rem]   ">
+          {/* <Link to={"/add-ons"}> */}
+            <button   onClick={handleNext} className="  cursor-pointer bg-[var(--Blue-950)] transition duration-200 hover:bg-[var(--Purple-600)] py-3 px-8 text-[1.1rem] text-[var(--White)] rounded-[.3rem]   ">
               Next Step
             </button>
-          </Link>
+          {/* </Link> */}
         </div>
       </div>
     </div>

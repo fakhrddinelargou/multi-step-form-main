@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type AddOn = {
   title: string;
@@ -48,6 +48,22 @@ export default function AddOns() {
     });
   };
 
+
+  const navigate = useNavigate()
+
+
+const handleNext = ()=>{
+
+  if(items.length === 0){
+console.log("error");
+
+  }else{
+    navigate("/finishing-up")
+  }
+
+}
+
+
   console.log(items)
   return (
     <div className=" w-[60%] h-full min-h-[35rem]">
@@ -95,15 +111,15 @@ export default function AddOns() {
               Back
             </button>
           </Link>
-        <Link to={"/finishing-up"}>
+        {/* <Link to={"/finishing-up"}> */}
          <button
-             
+             onClick={handleNext}
              
              className="  cursor-pointer bg-[var(--Blue-950)] transition duration-200 hover:bg-[var(--Purple-600)] py-3 px-8 text-[1.1rem] text-[var(--White)] rounded-[.3rem]   "
              >
             Next Step
         </button>
-               </Link>
+               {/* </Link> */}
                
       </div>
     </div>

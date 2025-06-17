@@ -1,7 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+// import { useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import {z} from "zod"
+
 
 
 const schema = z.object({
@@ -24,7 +26,7 @@ function PresonalInfo() {
     register,
     handleSubmit,
     setError,
-    reset,
+    // reset,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({resolver: zodResolver(schema)});
 
@@ -32,9 +34,11 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
   console.log(data);
 
   try {
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    reset();
-    throw new Error();
+    navigate("/select-plan");
+    // reset();
+    // throw new Error();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     setError("root", {
@@ -44,6 +48,12 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
   }
 };
 
+
+const navigate = useNavigate()
+
+// const handleNext = ()=>{
+//   navigate("/select-plan")
+// }
 
   return (
     <div className=" w-[60%] h-full min-h-[35rem]">
@@ -117,15 +127,15 @@ const onSubmit: SubmitHandler<FormFields> = async (data) => {
         
       <div className=" mt-auto h-[20%]  flex items-end justify-between ">
         <span className="text-[1.1rem] text-[var(--Grey-500)]"></span>
-        <Link to={"/select-plan"}>
+        {/* <Link to={"/select-plan"}> */}
          <button
              disabled={isSubmitting}
-             
+             type="submit"
              className="  cursor-pointer bg-[var(--Blue-950)] transition duration-200 hover:bg-[var(--Purple-600)] py-3 px-8 text-[1.1rem] text-[var(--White)] rounded-[.3rem]   "
              >
             Next Step
         </button>
-               </Link>
+               {/* </Link> */}
       </div>
       </form>
     </div>

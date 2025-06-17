@@ -53,7 +53,7 @@ export default function FinichingUp() {
              
              className="  cursor-pointer bg-[var(--Blue-950)] transition duration-200 hover:bg-[var(--Purple-600)] py-3 px-8 text-[1.1rem] text-[var(--White)] rounded-[.3rem]   "
              >
-            Next Step
+            Confirm
         </button>
                </Link>
                

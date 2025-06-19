@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function FinichingUp() {
+
+    const [searchParams , setSearchParams] = useSearchParams()
+
+
+  const paramsObj = Object.fromEntries(searchParams.entries());
+console.log(paramsObj);
+
+
   return (
     <div className=" w-[60%] h-full min-h-[35rem]">
  

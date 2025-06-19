@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 type AddOn = {
   title: string;
@@ -26,27 +26,44 @@ const addOns: AddOn[] = [
 ];
 
 export default function AddOns() {
+
   const [selected, setSelected] = useState<boolean[]>([false, false, false]);
   const [items, setItems] = useState<AddOn[]>([]);
 
-  const toggle = (addOn: AddOn, index: number) => {
-    setSelected((prevSelected) => {
-      const updatedSelected = prevSelected.map((isSelected, i) =>
-        i === index ? !isSelected : isSelected
-      );
+  const [searchParams , setSearchParams] = useSearchParams()
+  
+const plan = searchParams.get('plan')
+const priceL = searchParams.get('priceL')
 
-      if (!prevSelected[index]) {
-        setItems((prevItems) => [...prevItems, addOn]);
+
+// const paramsObj = Object.fromEntries(searchParams.entries());
+// console.log(paramsObj);
+
+
+  
+const toggle = (addOn: AddOn, index: number) => {
+  setSelected((prevSelected) => {
+    
+    const updatedSelected = prevSelected.map((isSelected, i) =>
+      i === index ? !isSelected : isSelected
+    );
+
+    setItems((prevItems) => {
+      if (updatedSelected[index]) {
+        if (!prevItems.some(item => item.title === addOn.title)) {
+          return [...prevItems, addOn];
+        }
+        return prevItems; 
       } else {
-   
-        setItems((prevItems) =>
-          prevItems.filter((item) => item.title !== addOn.title)
-        );
+        return prevItems.filter(item => item.title !== addOn.title);
       }
-
-      return updatedSelected; 
     });
-  };
+
+    return updatedSelected;
+  });
+};
+
+
 
 
   const navigate = useNavigate()
@@ -58,7 +75,11 @@ const handleNext = ()=>{
 console.log("error");
 
   }else{
-    navigate("/finishing-up")
+    const optiontitle1 = items[0]?.title ?? "";
+const optiontitle2 = items[1]?.title ?? "";
+const optiontitle3 = items[2]?.title ?? "";
+
+    navigate(`/finishing-up?plan=${plan}&priceL=${priceL}&optiontitle1=${optiontitle1}&optiontitle2=${optiontitle2}&optiontitle3=${optiontitle3}`)
   }
 
 }

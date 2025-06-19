@@ -14,7 +14,7 @@ const handleNext = ()=>{
 console.log("error");
 
   }else{
-    navigate("/add-ons")
+    navigate(`/add-ons?plan=${sCard[0].plan}&priceL=${sCard[0].price}`)
   }
 
 }
